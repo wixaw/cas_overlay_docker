@@ -1,0 +1,27 @@
+{
+    "@class": "org.apereo.cas.services.CasRegisteredService",
+    "serviceId": "^(http|https|imap|imaps)://10\\.0\\.1.*",
+    "name": "Service du réseau test",
+    "description": "Authentification SSO à un service web via une classe IP - TEST ! ",
+    "id": 1,
+    "proxyPolicy": {
+        "@class": "org.apereo.cas.services.RegexMatchingRegisteredServiceProxyPolicy",
+        "pattern": "^(http|https|imap|imaps)://10\\.0\\.1.*"
+    },
+    "attributeReleasePolicy": {
+        "@class": "org.apereo.cas.services.ReturnAllowedAttributeReleasePolicy",
+        "allowedAttributes": [
+            "java.util.ArrayList", [
+                "cn",
+                "displayName",
+                "givenName",
+                "mail",
+                "sn"
+            ]
+        ]
+    },
+    "ticketGrantingTicketExpirationPolicy": {
+        "@class": "org.apereo.cas.services.DefaultRegisteredServiceTicketGrantingTicketExpirationPolicy",
+        "maxTimeToLiveInSeconds": 72000
+    }
+}

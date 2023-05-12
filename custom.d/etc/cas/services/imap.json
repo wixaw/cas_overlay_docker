@@ -1,0 +1,28 @@
+{
+    "@class": "org.apereo.cas.services.CasRegisteredService",
+    "serviceId": "^imaps://(imap|smtp|srvmail)\\.domain\\.fr",
+    "name": "Messagerie",
+    "description": "Connexion CAS aux serveurs mails",
+    "id": 2,
+    "evaluationOrder": 10,
+    "proxyPolicy": {
+        "@class": "org.apereo.cas.services.RegexMatchingRegisteredServiceProxyPolicy",
+        "pattern": "^imaps://(imap|smtp|srvmail)\\.domain\\.fr"
+    },
+    "attributeReleasePolicy": {
+        "@class": "org.apereo.cas.services.ReturnAllowedAttributeReleasePolicy",
+        "allowedAttributes": [
+            "java.util.ArrayList", [
+                "cn",
+                "displayName",
+                "givenName",
+                "mail",
+                "sn"
+            ]
+        ]
+    },
+    "ticketGrantingTicketExpirationPolicy": {
+        "@class": "org.apereo.cas.services.DefaultRegisteredServiceTicketGrantingTicketExpirationPolicy",
+        "maxTimeToLiveInSeconds": 72000
+    }
+}

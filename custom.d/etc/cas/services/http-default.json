@@ -1,0 +1,28 @@
+{
+    "@class": "org.apereo.cas.services.CasRegisteredService",
+    "serviceId": "^https://(www|wwwapp1|wwwapp2).*\\.domain\\.fr.*",
+    "name": "Web",
+    "description": "Authentification à un service web par vhost",
+    "id": 3,
+    "evaluationOrder": 1,
+    "proxyPolicy": {
+        "@class": "org.apereo.cas.services.RegexMatchingRegisteredServiceProxyPolicy",
+        "pattern": "^https://(www|wwwapp1|wwwapp2).*\\.domain\\.fr.*"
+    },
+    "attributeReleasePolicy": {
+        "@class": "org.apereo.cas.services.ReturnAllowedAttributeReleasePolicy",
+        "allowedAttributes": [
+            "java.util.ArrayList", [
+                "cn",
+                "displayName",
+                "givenName",
+                "mail",
+                "sn"
+            ]
+        ]
+    },
+    "ticketGrantingTicketExpirationPolicy": {
+        "@class": "org.apereo.cas.services.DefaultRegisteredServiceTicketGrantingTicketExpirationPolicy",
+        "maxTimeToLiveInSeconds": 72000
+    }
+}

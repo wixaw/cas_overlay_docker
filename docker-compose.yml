@@ -1,0 +1,26 @@
+version: "2.2"
+
+services:
+  cas:
+    restart: always
+    build: cas-overlay-template/
+    container_name: cas
+    volumes:
+      - ./custom.d/etc/cas/:/etc/cas/
+    ports:
+      - "8443:8443"
+      - "8080:8080"
+    links:
+      - redis
+    environment:
+      - JVM_DEBUG="false"
+      - JVM_MEM_OPTS="--Xms512m -Xmx2048M"
+
+  redis:
+    restart: always
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - /local/redis_data:/data
