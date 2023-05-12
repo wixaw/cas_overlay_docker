@@ -6,12 +6,7 @@
 mkdir -p /local/cas/compose/
 cd /local/cas/compose/
 
-git clone git@github.com:wixaw/cas_overlay_docker.git .
-
-git submodule add --force --branch 6.6 https://github.com/apereo/cas-overlay-template.git cas-overlay-template
-git submodule sync
-git submodule update --init
-git submodule update --recursive --remote
+git clone --recursive git@github.com:wixaw/cas_overlay_docker.git .
 
 #replaces keys in
 custom.d/etc/cas/config/cas.properties
