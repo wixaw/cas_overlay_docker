@@ -8,6 +8,7 @@ cd /local/cas/compose/
 
 git clone git@github.com:wixaw/cas_overlay_docker.git .
 
+git submodule add --force --branch 6.6 https://github.com/apereo/cas-overlay-template.git cas-overlay-template
 git submodule sync
 git submodule update --init
 git submodule update --recursive --remote

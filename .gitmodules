@@ -1,4 +1,4 @@
 [submodule "cas-overlay-template"]
 	path = cas-overlay-template
-	url = https://github.com/apereo/cas-overlay-template
-    branch = 6.6
+	url = https://github.com/apereo/cas-overlay-template.git
+	branch = 6.6
